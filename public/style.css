@@ -47,3 +47,35 @@ canvas{
     padding: 20px;
     font-size: 20px;
 }
+
+.playScreen{
+    position: absolute;
+    background-color: #00701c;
+    top: 70px;
+    bottom: -30px;
+    left: 0px;
+    right: 0px;
+    display: none;
+    text-align: center;
+}
+
+.playScreen button{
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #00a038;
+    border: 10px solid #3fff9f;
+    color: #FFF;
+}
+
+.playScreen button:hover{
+    background-color: #3fff9f;
+    color: #000;
+}
+
+.disabled{
+    background-color: #939393 !important;
+    border: 10px solid #bababa !important;
+    color: #FFF !important;
+}

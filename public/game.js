@@ -7,13 +7,35 @@ class Game{
         this.balance = new BehaviorSubject(0);
         this.canvas = document.querySelector("#canvas");
         this.ctx = this.canvas.getContext("2d");
+        this.loadingSreen = document.querySelector("#loadingSreen");
+        this.playScreen = document.querySelector("#playScreen");
         this.server = "ws://localhost:8999";
         this.network = "http://localhost:7545";
-        this.tokenContract = "";
-    
+            
         this.bindData();        
         this.metamaskConnect();
         this.render();
+    }
+
+    async loadContracts(){
+        try{
+            this.networkConn = new Web3(this.network);
+            this.tokenContractAddress = "0x9078f6C05508EEf46F1c390e50Aca47b66dB1069";
+            this.tokenContractAbi = await this.loadABI("SnakeCoin.abi.json");
+            this.tokenContract = new this.networkConn.eth.Contract(this.tokenContractAbi, this.tokenContractAddress);
+            const balance = await this.tokenContract.methods.balanceOf(this.wallet.value).call();
+            this.balance.next(balance);
+            return this;
+        }
+        catch(e){
+            console.log(e);
+            return null;
+        }  
+    }
+
+    async loadABI(url){
+        const response = await fetch(url);
+        return await response.json();
     }
 
     bindData(){
@@ -113,6 +135,8 @@ class Game{
                 const Profile = this.proto.lookupType("server.Profile");
                 const profile = Profile.decode(new Uint8Array(buffer));
                 this.energy.next(profile.energies);
+                this.loadingSreen.style.display = "none";
+                this.playScreen.style.display = "block";
             break;
         }
     }
@@ -187,5 +211,6 @@ window.addEventListener("load", async (event) => {
     const game = new Game();
 
     game.loadProto()
-        .then((game) => game.createWebSocket());
+        .then(async (game) => await game.loadContracts())
+        .then(async (game) => await game.createWebSocket());
 });
