@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>CryptoSnake</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+
+        <div id="game">
+            <div class="header-game">
+                Your Wallet: <i id="wallet"></i>
+
+                <div class="header-game-energy">
+                    <i class="fa-solid fa-gem"></i> <i id="balance"></i> / 
+                    <i class="fa-solid fa-bolt"></i> <i id="energy"></i>
+                </div>
+            </div>
+
+            <canvas id="canvas" width="600" height="600"></canvas>
+
+            <div id="loadingSreen" class="loadingSreen">
+                <div class="loadingLabel">Loading...</div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="//unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="//cdn.rawgit.com/dcodeIO/protobuf.js/6.10.2/dist/protobuf.min.js" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="//cdn.ethers.io/scripts/ethers-v3.min.js" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="game.js"></script>
+    </body>
+</html>

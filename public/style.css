@@ -1,0 +1,49 @@
+body{
+    margin: 0px;
+    background-color: #72ffcb;
+}
+
+.header-game{
+    position: relative;
+    border: 10px solid #00a038;
+    padding: 15px;
+    background-color: #3fff9f;
+}
+
+.header-game-energy{
+    position: absolute;
+    background-color: #00701c;
+    padding: 15px;
+    right: 0px;
+    top: 0px;
+}
+
+canvas{
+    border: 10px solid #00a038;
+}
+
+#game{
+    position: relative;
+    width: 620px;
+    height: 660px;
+    margin: auto;
+}
+
+#loadingSreen{
+    position: absolute;
+    background-color: black;
+    top: 70px;
+    bottom: -30px;
+    left: 0px;
+    right: 0px;
+    opacity: 0.5;
+}
+
+.loadingLabel{
+    color: #FFF;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+    font-size: 20px;
+}
